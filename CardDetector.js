@@ -27,7 +27,7 @@ this.detectionInterval;
 
 this.scanForCards = () => {
   setInterval(()=>{
-    mfrc522.reset();
+    // mfrc522.reset();
 
     let response = mfrc522.findCard();
     if (!response.status) {

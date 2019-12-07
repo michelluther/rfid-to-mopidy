@@ -29,6 +29,7 @@ cardDetector.on('card-detected', (card) => {
         mopidyClient.playback.play({"tl_track":null,"tlid":null}).then(function(data){
             currentStatus = statusMap.playing
             console.log('started playing')
+            console.log(data)
         }).catch(reason =>{
             console.log('hey, something went wrong')
         })
@@ -46,7 +47,11 @@ cardDetector.on('card-removed', () => {
 playRFIDCard = (card) => {
     mopidyClient.playback.stop({})
         .then(() => {mopidyClient.tracklist.clear({}).then(() => {
-            mopidyClient.tracklist.add({"uris":[rfidTrackMapping[card.getId()].uri]})
+            console.log('tracklist cleared');
+            
+            mopidyClient.tracklist.add({"uris":[rfidTrackMapping[card.getId()].uri]}).then(() => {
+                console.log('tracklist added')
+            })
         }) })
 }
 
