@@ -14,5 +14,22 @@
         "uri": "tunein:station:s80044",
         "title": "Radio Teddy",
         "artist": "Radio"
+    },
+    "b-43-9-1c": {
+        "uri": "spotify:album:6jbxhrzeRQ87glDoAmw42C",
+        "title": "Keine Märchen",
+        "artist": "Deine Freunde"
+    },
+    "17-50-de-3a": {
+        "uri": "spotify:album:3BKfDiq9KWSmbV7NHoCGlt",
+        "title": "Next!",
+        "artist": "Seeed"
+    },
+    "67-95-df-3a": {
+        "uri": "spotify:album:5qvokPibHLO3e47oV4wyhz",
+        "title": "Der goldene Drache",
+        "artist": "Die drei ??? Kids"
     }
+
+    
 }

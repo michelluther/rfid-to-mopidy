@@ -17,7 +17,7 @@ const softSPI = new SoftSPI({
 
 // GPIO 24 can be used for buzzer bin (PIN 18), Reset pin is (PIN 22).
 // I believe that channing pattern is better for configuring pins which are optional methods to use.
-const mfrc522 = new Mfrc522(softSPI).setResetPin(22).setBuzzerPin(18);
+const mfrc522 = new Mfrc522(softSPI)//.setResetPin(22).setBuzzerPin(18);
 
 const CardDetector = function(){
 
@@ -27,16 +27,18 @@ this.detectionInterval;
 
 this.scanForCards = () => {
   setInterval(()=>{
-    // mfrc522.reset();
-
+    console.log('checking ...')
+    mfrc522.reset();
+    console.log('have reset ...')
+    
     let response = mfrc522.findCard();
+    console.log('have tried to find a card ...')
     if (!response.status) {
       this.emitNoCard();
       if (this.notFoundFor < 6)
         this.notFoundFor ++;
       return;
     }
-
     response = mfrc522.getUid();
     if (!response.status) {
       console.log("UID Scan Error");
@@ -48,7 +50,7 @@ this.scanForCards = () => {
     this.notFoundFor = 0;
     let card = new Card(response.data);
     this.emit('card-detected', card);
-  }, 100);
+  }, 250);
 
   },
 
@@ -56,6 +58,10 @@ this.scanForCards = () => {
     if(this.notFoundFor === 5){
       this.emit('card-removed')
     }
+  },
+
+  this.resetReader = () => {
+    mfrc522.reset();
   }
 }
 
