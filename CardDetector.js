@@ -23,16 +23,23 @@ const CardDetector = function(){
 
 this.notFoundFor = 0;
 this.detectionInterval;
+this.lastTimestamp = null;
+this.checkCardInterval = 250;
+this.slownessReported = false;
 
 
 this.scanForCards = () => {
+  this.lastTimestamp = Date.now()
   setInterval(()=>{
-    console.log('checking ...')
+    let now = Date.now();
+    if(now - this.lastTimestamp > 3*this.checkCardInterval && !this.slownessReported){
+      this.emit('long-running-check');
+      this.slownessReported = true
+    }
+    this.lastTimestamp = now;
     mfrc522.reset();
-    console.log('have reset ...')
     
     let response = mfrc522.findCard();
-    console.log('have tried to find a card ...')
     if (!response.status) {
       this.emitNoCard();
       if (this.notFoundFor < 6)
@@ -50,7 +57,7 @@ this.scanForCards = () => {
     this.notFoundFor = 0;
     let card = new Card(response.data);
     this.emit('card-detected', card);
-  }, 250);
+  }, this.checkCardInterval);
 
   },
 

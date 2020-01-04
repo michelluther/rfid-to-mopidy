@@ -1,5 +1,7 @@
 const CardDetector = require('./CardDetector')
 const Mopidy = require('mopidy')
+const email = require('./eMail')
+const config = require('./config')
 
 let cardDetector = null;
 
@@ -45,6 +47,10 @@ setTimeout(() => {
                 console.log('paused playback')
             });
     })
+
+    cardDetector.on('long-running-check', () => {
+        email.sendMessage(config.email.toAddress, 'Kinderzimmermusik ist slow', 'Sooo slow!')
+    })
     
     playRFIDCard = (card) => {
         mopidyClient.playback.stop({})
@@ -63,8 +69,8 @@ setTimeout(() => {
 }, 1000)
 
 function exitHandler(options, exitCode) {
+    console.log('cleaning up');
     cardDetector.resetReader();
-    console.log('clean');
     if (exitCode || exitCode === 0) console.log(exitCode);
     if (options.exit) process.exit();
 }
