@@ -40,6 +40,11 @@ this.scanForCards = () => {
     mfrc522.reset();
     
     let response = mfrc522.findCard();
+
+    if(response.bitSize === -1){
+      this.emo
+    }
+
     if (!response.status) {
       this.emitNoCard();
       if (this.notFoundFor < 6)
@@ -66,6 +71,10 @@ this.scanForCards = () => {
       this.emit('card-removed')
     }
   },
+
+  this.emitCardReaderBroken = () => {
+    this.emit('card-detector-broken');
+  }
 
   this.resetReader = () => {
     mfrc522.reset();

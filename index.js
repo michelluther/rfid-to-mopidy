@@ -67,6 +67,10 @@ const setUpCardDetector = () => {
     cardDetector.on('long-running-check', () => {
         email.sendMessage(config.email.toAddress, 'Kinderzimmermusik ist slow', 'Sooo slow!')
     })
+
+    cardDetector.on('card-detector-broken', () => {
+        email.sendMessage(config.email.toAddress, 'Kinderzimmermusik: Kartenlesegerät funktioniert nicht', 'Guck mal nach!')
+    })
     
     playRFIDCard = (card) => {
         mopidyClient.playback.stop({})
@@ -102,7 +106,6 @@ let intervalId = setInterval(() => {
             console.log('connection to mopidy failed, will try again')
         })
     } catch (exc) {
-        console.log(exc)
         console.log('could not connect to mopidy, will try again in 1 second')
     }   
 },1000)
