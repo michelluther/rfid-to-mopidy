@@ -78,9 +78,23 @@ const setUpCardDetector = () => {
                 console.log('tracklist cleared');
                 const cardConfig = rfidTrackMapping[card.getId()]
                 if(cardConfig){
-                    mopidyClient.tracklist.add({"uris":[cardConfig.uri]}).then(() => {
-                        console.log('tracklist added')
-                    })
+                    if(cardConfig.uri.startsWith('m3u:')){
+                        mopidyClient.playlists.getPlaylists().then((playLists) => {
+                            const playList = playLists.find( ({ name }) => name === 'Beatles' )
+                            const trackUris = [];
+                            playList.tracks.forEach(track => {
+                                trackUris.push(track.uri)
+                            })
+                            mopidyClient.tracklist.add({"uris": trackUris }).then(trackList => {
+                                console.log('playlist added to tracklist')
+                            })
+                        })
+                    } else {
+                        mopidyClient.tracklist.add({"uris":[cardConfig.uri]}).then((error) => {
+                            console.log('tracklist added')
+                            console.log(error)
+                        })
+                    }
                 }
             }) })
     }

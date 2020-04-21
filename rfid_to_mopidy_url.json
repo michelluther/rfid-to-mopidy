@@ -1,12 +1,11 @@
 {
-
     "a9-2a-b0-87": {
         "uri": "spotify:album:1IS2vd6jhTVg9ceLDlMnL8",
         "title": "Immer noch Mensch",
         "artist": "Tim BEndzko"
     },
     "87-96-ce-3a": {
-        "uri": "spotify:album:4CzT5ueFBRpbILw34HQYxi",
+        "uri": "spotify:album:30w9IzSbHHevllaU299TMh",
         "title": "All Eyez On Me",
         "artist": "2Pac"
     },
@@ -29,7 +28,51 @@
         "uri": "spotify:album:5qvokPibHLO3e47oV4wyhz",
         "title": "Der goldene Drache",
         "artist": "Die drei ??? Kids"
+    },
+    "d7-4e-d8-3a": {
+        "uri": "spotify:album:5J0AsPaix5KTMNjTFpj624",
+        "title": "Duell der Ritter",
+        "artist": "Die drei ??? Kids"
+    },
+    "87-8-d6-3a": {
+        "uri": "spotify:album:258prGGWmuTalqVq9Q7IHD",
+        "title": "Eddi & Dän singen neue Kinderlieder a cappella, Vol. 2",
+        "artist": "Eddi & Dän"
+    },
+    "27-af-e0-3a": {
+        "uri": "spotify:album:5TK55A4eFCOkJSu1ZddZfM",
+        "title": "Tabaluga oder die Reise zur Vernunft",
+        "artist": "Peter Maffay"
+    },
+    "77-58-e2-3a": {
+	"uri": "spotify:album:50d2KMK7GtbCTfLqxDfHIS",
+	"title": "Radio Rocky Beach",
+	"artist": "Die drei ??? Kids"
+    },
+    "77-74-de-3a": {
+	"uri": "spotify:album:5PEjckgsqkxbpDlgz30wTk",
+	"title": "Feuer in Rocky Beach",
+	"artist": "Die drei ??? Kids"
+    },
+    "b0-9-cd-32":{
+	"uri": "spotify:album:5mQg8r5ivI0IX5bTV57KyN",
+	"title": "Panik im Paradies",
+	"artist": "Die drei ??? Kids"
+    },
+    "14-1a-38-2b":{
+	"uri": "spotify:album:2ImJ8I027DjZSlDRiaZj9o",
+	"title": "In Pontypandy ist was los",
+	"artist": "Feuerwehrmann Sam"
+    },
+    "14-4f-9c-2b": {                     
+        "uri": "spotify:album:259QrHJD4FbAa4wSTFUSsQ",
+        "title": "Asterix auf großer Überfahrt",
+        "artist": "Asterix und Obelix"
+    },
+    "24-2a-58-2b":{
+    "uri": "m3u:Beatles.m3u8",
+	"title": "Beatles Playlist",
+	"artist": "The Beatles"
     }
 
-    
 }
