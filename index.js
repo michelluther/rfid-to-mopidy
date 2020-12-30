@@ -65,10 +65,12 @@ const setUpCardDetector = () => {
     })
 
     cardDetector.on('long-running-check', () => {
+        console.log('it took too long')
         email.sendMessage(config.email.toAddress, 'Kinderzimmermusik ist slow', 'Sooo slow!')
     })
 
     cardDetector.on('card-detector-broken', () => {
+        console.log('card reader does not work')
         email.sendMessage(config.email.toAddress, 'Kinderzimmermusik: Kartenlesegerät funktioniert nicht', 'Guck mal nach!')
     })
     

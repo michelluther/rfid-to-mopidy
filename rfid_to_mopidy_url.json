@@ -45,34 +45,38 @@
         "artist": "Peter Maffay"
     },
     "77-58-e2-3a": {
-	"uri": "spotify:album:50d2KMK7GtbCTfLqxDfHIS",
-	"title": "Radio Rocky Beach",
-	"artist": "Die drei ??? Kids"
+        "uri": "spotify:album:50d2KMK7GtbCTfLqxDfHIS",
+        "title": "Radio Rocky Beach",
+        "artist": "Die drei ??? Kids"
     },
     "77-74-de-3a": {
-	"uri": "spotify:album:5PEjckgsqkxbpDlgz30wTk",
-	"title": "Feuer in Rocky Beach",
-	"artist": "Die drei ??? Kids"
+        "uri": "spotify:album:5PEjckgsqkxbpDlgz30wTk",
+        "title": "Feuer in Rocky Beach",
+        "artist": "Die drei ??? Kids"
     },
-    "b0-9-cd-32":{
-	"uri": "spotify:album:5mQg8r5ivI0IX5bTV57KyN",
-	"title": "Panik im Paradies",
-	"artist": "Die drei ??? Kids"
+    "b0-9-cd-32": {
+        "uri": "spotify:album:5mQg8r5ivI0IX5bTV57KyN",
+        "title": "Panik im Paradies",
+        "artist": "Die drei ??? Kids"
     },
-    "14-1a-38-2b":{
-	"uri": "spotify:album:2ImJ8I027DjZSlDRiaZj9o",
-	"title": "In Pontypandy ist was los",
-	"artist": "Feuerwehrmann Sam"
+    "14-1a-38-2b": {
+        "uri": "spotify:album:2ImJ8I027DjZSlDRiaZj9o",
+        "title": "In Pontypandy ist was los",
+        "artist": "Feuerwehrmann Sam"
     },
-    "14-4f-9c-2b": {                     
+    "14-4f-9c-2b": {
         "uri": "spotify:album:259QrHJD4FbAa4wSTFUSsQ",
         "title": "Asterix auf großer Überfahrt",
         "artist": "Asterix und Obelix"
     },
-    "24-2a-58-2b":{
-    "uri": "m3u:Beatles.m3u8",
-	"title": "Beatles Playlist",
-	"artist": "The Beatles"
+    "24-2a-58-2b": {
+        "uri": "m3u:Beatles.m3u8",
+        "title": "Beatles Playlist",
+        "artist": "The Beatles"
+    },
+    "b0-90-60-32": {
+        "uri": "spotify:album:6hhMRFEvSSsOsOMRxTE3WU",
+        "title": "Asterix der Gallier",
+        "artist": "Asterix"
     }
-
 }
