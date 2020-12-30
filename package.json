@@ -13,6 +13,8 @@
     "axios": "0.19.0",
     "mfrc522-rpi": "2.0.0",
     "mopidy": "1.0.1",
-    "nodemailer": "^6.4.13"
+    "nodemailer": "^6.4.13",
+    "pigpio": "^3.2.4",
+    "raspi-pwm": "^6.0.0"
   }
 }
