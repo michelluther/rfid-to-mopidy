@@ -12,6 +12,8 @@ const setUpMopidyClient = () => {
         mopidyClient = new Mopidy({
             webSocketUrl: "ws://localhost:6680/mopidy/ws/",
             callingConvention: "by-position-or-by-name",
+            backoffDelayMin: 5,
+            backoffDelayMax: 5,
             
         })
         const onConnected = () => {
@@ -122,7 +124,11 @@ function exitHandler(options, exitCode) {
 
 statusIndicator.displayStatus(statusIndicator.status.starting)
 
+let attachToMopidyTime = 0;
+
 let intervalId = setInterval(() => {
+    attachToMopidyTime ++;
+    console.log('looking to attach to mopidy')
     try {
         setUpMopidyClient().then(() => {
             setUpCardDetector();

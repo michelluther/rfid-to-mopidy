@@ -49,7 +49,9 @@ const statusIndicatorConfig = {
     }
 }
 
-const displayStatus = function(status){
+const displayStatus = function(status){+
+    console.log('will start display of status: ' + status)
+    stopDisplay()
     dutyCycle = 0;
     dutyCycleSummand = 0;
     currentInterval = setInterval(statusIndicatorConfig[status], 20)
@@ -59,7 +61,6 @@ const stopDisplay = function(){
     clearInterval(currentInterval);
 }
 
-displayStatus(statusValues.error)
 
 module.exports = {
     status: statusValues,

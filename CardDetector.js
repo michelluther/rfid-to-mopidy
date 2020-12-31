@@ -24,7 +24,7 @@ const CardDetector = function(){
 this.notFoundFor = 0;
 this.detectionInterval;
 this.lastTimestamp = null;
-this.checkCardInterval = 1000;
+this.checkCardInterval = 500;
 this.slownessReported = false;
 
 
@@ -38,9 +38,9 @@ this.scanForCards = () => {
     }
     this.lastTimestamp = now;
     mfrc522.reset();
-    console.log('will start findCard')
+    // console.log('will start findCard')
     let response = mfrc522.findCard();
-    console.log('finished findCard')
+    // console.log('finished findCard')
 
     if(response.bitSize === -1){
       this.emitCardReaderBroken()
@@ -68,7 +68,7 @@ this.scanForCards = () => {
   },
 
   this.emitNoCard = () => {
-    if(this.notFoundFor === 5){
+    if(this.notFoundFor === 3){
       this.emit('card-removed')
     }
   },
