@@ -2,7 +2,7 @@ const CardDetector = require('./CardDetector')
 const Mopidy = require('mopidy')
 const email = require('./eMail')
 const config = require('./config')
-const statusIndicator = require('./statusIndicator')
+// const statusIndicator = require('./statusIndicator')
 
 let cardDetector = null;
 let mopidyClient = null;
@@ -47,17 +47,17 @@ const setUpCardDetector = () => {
             console.log('this is the card that just got detected: ' + card.getId())
             currentlyActiveCard = card;
             playRFIDCard(card)
-            statusIndicator.displayStatus(statusIndicator.status.playing)
+            // statusIndicator.displayStatus(statusIndicator.status.playing)
         } else if(currentStatus !== statusMap.playing && currentlyActiveCard !== statusMap.launched_play){
             status = statusMap.launched_play
             mopidyClient.playback.play({"tl_track":null,"tlid":null}).then(function(data){
-                statusIndicator.displayStatus(statusIndicator.status.playing)
+                // statusIndicator.displayStatus(statusIndicator.status.playing)
                 currentStatus = statusMap.playing
                 console.log('started playing')
                 console.log(data)
             }).catch(reason =>{
                 console.log('hey, something went wrong')
-                statusIndicator.displayStatus(statusIndicator.status.error)
+                // statusIndicator.displayStatus(statusIndicator.status.error)
             })
         }
     })
@@ -67,7 +67,7 @@ const setUpCardDetector = () => {
             mopidyClient.playback.pause({}).then(function(data){
                 currentStatus = statusMap.paused
                 console.log('paused playback')
-                statusIndicator.displayStatus(statusIndicator.status.waitingForInput)
+                // statusIndicator.displayStatus(statusIndicator.status.waitingForInput)
             });
     })
 
@@ -78,8 +78,8 @@ const setUpCardDetector = () => {
 
     cardDetector.on('card-detector-broken', () => {
         console.log('card reader does not work')
-        statusIndicator.displayStatus(statusIndicator.status.error)
-        email.sendMessage(config.email.toAddress, 'Kinderzimmermusik: Kartenlesegerät funktioniert nicht', 'Guck mal nach!')
+        // statusIndicator.displayStatus(statusIndicator.status.error)
+        // email.sendMessage(config.email.toAddress, 'Kinderzimmermusik: Kartenlesegerät funktioniert nicht', 'Guck mal nach!')
     })
     
     playRFIDCard = (card) => {
@@ -122,7 +122,7 @@ function exitHandler(options, exitCode) {
 }
 
 
-statusIndicator.displayStatus(statusIndicator.status.starting)
+// statusIndicator.displayStatus(statusIndicator.status.starting)
 
 let attachToMopidyTime = 0;
 
