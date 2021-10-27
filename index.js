@@ -2,6 +2,7 @@ const CardDetector = require('./CardDetector')
 const Mopidy = require('mopidy')
 const email = require('./eMail')
 const config = require('./config')
+var cp = require('child_process');
 // const statusIndicator = require('./statusIndicator')
 
 let cardDetector = null;
@@ -90,7 +91,7 @@ const setUpCardDetector = () => {
                 if(cardConfig){
                     if(cardConfig.uri.startsWith('m3u:')){
                         mopidyClient.playlists.getPlaylists().then((playLists) => {
-                            const playList = playLists.find( ({ name }) => name === 'Beatles' )
+                            const playList = playLists.find( ({ name }) => name === cardConfig.title )
                             const trackUris = [];
                             playList.tracks.forEach(track => {
                                 trackUris.push(track.uri)
@@ -105,6 +106,12 @@ const setUpCardDetector = () => {
                             console.log(error)
                         })
                     }
+                    if(cardConfig.sleep === true) {
+                        console.log('will initiate sleep timer')
+                        cp.exec('./newFile.sh', (err, stdout, stderr) => {
+                    })}
+                    // if(cardConfig.repeat) mopidyClient.playback.setRepeat(true)
+                    // else mopidyClient.playback.setRepeat(true)
                 }
             }) })
     }
