@@ -25,7 +25,7 @@ Description=rfid card reader
 #Requires=After=mysql.service       # Requires the mysql service to run first
 
 [Service]
-ExecStart=/usr/bin/node /opt/rfid_to_mopidy/index.js
+ExecStart=/usr/bin/node /home/pi/rfid-to-mopidy/index.js
 # Required on some systems
 #WorkingDirectory=/opt/rfid_to_mopidy
 Restart=always
