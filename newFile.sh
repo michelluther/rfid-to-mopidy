@@ -1,1 +1,1 @@
-echo 'testfile' > tesfile.txt
+echo 'testfile' > ./testfile.txt

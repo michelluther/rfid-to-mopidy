@@ -50,7 +50,7 @@ const setUpCardDetector = () => {
             playRFIDCard(card)
             // statusIndicator.displayStatus(statusIndicator.status.playing)
         } else if(currentStatus !== statusMap.playing && currentlyActiveCard !== statusMap.launched_play){
-            status = statusMap.launched_play
+            currentStatus = statusMap.launched_play
             mopidyClient.playback.play({"tl_track":null,"tlid":null}).then(function(data){
                 // statusIndicator.displayStatus(statusIndicator.status.playing)
                 currentStatus = statusMap.playing
@@ -85,7 +85,9 @@ const setUpCardDetector = () => {
     
     playRFIDCard = (card) => {
         mopidyClient.playback.stop({})
-            .then(() => {mopidyClient.tracklist.clear({}).then(() => {
+        .then(() => {
+            mopidyClient.tracklist.clear({})
+            .then(() => {
                 console.log('tracklist cleared');
                 const cardConfig = rfidTrackMapping[card.getId()]
                 if(cardConfig){
@@ -107,13 +109,19 @@ const setUpCardDetector = () => {
                         })
                     }
                     if(cardConfig.sleep === true) {
-                        console.log('will initiate sleep timer')
-                        cp.exec('./newFile.sh', (err, stdout, stderr) => {
-                    })}
-                    // if(cardConfig.repeat) mopidyClient.playback.setRepeat(true)
-                    // else mopidyClient.playback.setRepeat(true)
+                        console.log('will initiate sleep, timer')
+                        cp.execFile('./sleep.sh', {user: 'pi', cwd: '/home/pi/rfid-to-mopidy'}, (error, stdout, stderr) => {
+                            if (error) {
+                              throw error;
+                            }
+                            console.log(stdout);
+                          })
+                    }
+                    if(cardConfig.repeat) mopidyClient.tracklist.setRepeat(true)
+                    else mopidyClient.tracklist.setRepeat(true)
                 }
-            }) })
+            }) 
+        })
     }
     
     cardDetector.scanForCards();
